@@ -1,19 +1,20 @@
-import PendingTasks from "@/components/home/pending-tasks";
 import HabitCard from "@/components/home/habits";
-import { Dashpanel } from "@/components/home/dashpanel";
+import dateObj from "@/lib/info/DateObj";
 
-const page = () => {
-  // const { setShowAddContactModal } = useContext(ModalContext);
-
+export default function page() {
   return (
     <>
       <div className="z-10 ml-40 w-full max-w-7xl px-5 xl:px-0">
         <div className="flex">
+          {dateObj.map((day) => (
+            <div>
+              {day.date}
+              {day.day}
+            </div>
+          ))}
           <HabitCard />
         </div>
       </div>
     </>
   );
-};
-
-export default page;
+}
