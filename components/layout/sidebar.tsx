@@ -11,7 +11,7 @@ import { GiCootieCatcher } from "react-icons/gi";
 export default function Sidebar({ session }: { session?: Session | null }) {
   // const { SignInModal, setShowSignInModal } = useSignInModal();
   return (
-    <div className="fixed left-0 top-0 h-screen w-52 overflow-y-auto bg-[#F7F9FC] text-[#BDC5CE]">
+    <div className="fixed left-0 top-0 z-50 h-screen w-52 overflow-y-auto bg-[#F7F9FC] text-[#BDC5CE]">
       <div className="flex items-center p-4 pl-8 text-2xl font-bold text-[#0F6FDE]">
         <AiOutlineVideoCameraAdd className="mr-2" />
         <p>Catchup</p>
@@ -21,7 +21,7 @@ export default function Sidebar({ session }: { session?: Session | null }) {
           <li className="mb-2 px-5 py-5 ">
             <a
               href="#"
-              className="flex items-center text-[#0F6FDE] hover:text-white"
+              className="flex items-center text-[#0F6FDE] hover:text-[#0F6FDE]"
             >
               <AiFillHome className="mr-2" />
               Dashboard
@@ -30,7 +30,7 @@ export default function Sidebar({ session }: { session?: Session | null }) {
           <li className="mb-2 px-5 py-5">
             <a
               href="#"
-              className="flex items-center text-gray-300 hover:text-white"
+              className="flex items-center text-gray-300 hover:text-[#0F6FDE]"
             >
               <AiFillCheckCircle className="mr-2" />
               Profile
@@ -39,7 +39,7 @@ export default function Sidebar({ session }: { session?: Session | null }) {
           <li className="mb-2 px-5 py-5">
             <a
               href="#"
-              className="flex items-center text-gray-300 hover:text-white"
+              className="flex items-center text-gray-300 hover:text-[#0F6FDE]"
             >
               <AiFillSetting className="mr-2" />
               Settings
@@ -48,7 +48,7 @@ export default function Sidebar({ session }: { session?: Session | null }) {
           <li className="mb-2 px-5 py-5">
             <a
               href="#"
-              className="flex items-center text-gray-300 hover:text-white"
+              className="flex items-center text-gray-300 hover:text-[#0F6FDE]"
             >
               <AiFillCheckCircle className="mr-2" />
               Logout
