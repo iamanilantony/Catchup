@@ -21,7 +21,6 @@ function AddContactModalHelper({
   showAddContactModal: boolean;
   setShowAddContactModal: Dispatch<SetStateAction<boolean>>;
 }) {
-  const [saving, setSaving] = useState(false);
   const [data, setData] = useState<ContactCreationRequest>({
     name: "",
     duration: 0,
@@ -32,6 +31,30 @@ function AddContactModalHelper({
 
   const { name, duration, relation } = data;
 
+  const { mutate: createContact } = useMutation({
+    mutationFn: async ({
+      name,
+      duration,
+      relation
+    }: ContactCreationRequest) => {
+      const payload: ContactCreationRequest = {
+        name,
+        duration,
+        relation
+      };
+
+      const { data } = await axios.post("/api/contact/create", payload);
+      return data;
+    },
+    onError: () => {
+      return;
+    },
+    onSuccess: () => {
+      router.push("");
+      //toast
+    }
+  });
+
   return (
     <Modal
       showModal={showAddContactModal}
@@ -39,42 +62,16 @@ function AddContactModalHelper({
     >
       <div className="flex flex-col items-center justify-center space-y-3 border-b border-gray-200 px-4 py-4 pt-8 sm:px-16">
         <h3 className="text-lg font-medium">Create a new Contact</h3>
-        <Link
-          href="/contacts"
-          className="text-center text-xs text-gray-500 underline underline-offset-4 hover:text-gray-400"
-        >
-          Show Your current contacts1
+        <Link href="/contacts">
+          <a className="text-center text-xs text-gray-500 underline underline-offset-4 hover:text-gray-400">
+            Show Your current contacts
+          </a>
         </Link>
         <form
           onSubmit={async (e: FormEvent<HTMLFormElement>) => {
             e.preventDefault();
-            setSaving(true);
-            const { mutate: createContact } = useMutation({
-              mutationFn: async ({
-                name,
-                duration,
-                relation
-              }: ContactCreationRequest) => {
-                const payload: ContactCreationRequest = {
-                  name,
-                  duration,
-                  relation
-                };
-
-                const { data } = await axios.post(
-                  "/api/contact/create",
-                  payload
-                );
-                return data;
-              },
-              onError: () => {
-                return;
-              },
-              onSuccess: () => {
-                router.push("");
-                //toast
-              }
-            });
+            const response = await createContact(data);
+            // Handle the response as needed
           }}
           className="flex flex-col space-y-6 bg-gray-50 px-4 py-8 text-left sm:px-16"
         >
@@ -152,7 +149,7 @@ function AddContactModalHelper({
               aria-invalid="true"
             />
           </div>
-          <Button disabled={saving} title="create project" />
+          <Button title="create project" />
         </form>
       </div>
     </Modal>
@@ -169,7 +166,7 @@ export function useAddContactModal() {
         setShowAddContactModal={setShowAddContactModal}
       />
     );
-  }, [showAddContactModal, setShowAddContactModal]);
+  }, [showAddContactModal]);
 
   return useMemo(
     () => ({ setShowAddContactModal, AddContactModal }),

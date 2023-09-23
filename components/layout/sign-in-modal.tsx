@@ -5,14 +5,14 @@ import {
   Dispatch,
   SetStateAction,
   useCallback,
-  useMemo,
+  useMemo
 } from "react";
 import { LoadingDots, Google } from "@/components/shared/icons";
 import Image from "next/image";
 
 const SignInModal = ({
   showSignInModal,
-  setShowSignInModal,
+  setShowSignInModal
 }: {
   showSignInModal: boolean;
   setShowSignInModal: Dispatch<SetStateAction<boolean>>;
@@ -81,6 +81,6 @@ export function useSignInModal() {
 
   return useMemo(
     () => ({ setShowSignInModal, SignInModal: SignInModalCallback }),
-    [setShowSignInModal, SignInModalCallback],
+    [setShowSignInModal, SignInModalCallback]
   );
 }

@@ -1,12 +1,7 @@
 "use client";
 
-import {
-  Dispatch,
-  ReactNode,
-  SetStateAction,
-  createContext,
-  useState
-} from "react";
+import { useAddContactModal } from "@/components/app/modals/add-contact-modal";
+import { Dispatch, ReactNode, SetStateAction, createContext } from "react";
 
 export const ModalContext = createContext<{
   setShowAddContactModal: Dispatch<SetStateAction<boolean>>;
@@ -15,9 +10,10 @@ export const ModalContext = createContext<{
 });
 
 export default function ModalProvider({ children }: { children: ReactNode }) {
-  const [showAddContactModal, setShowAddContactModal] = useState(false);
+  const { AddContactModal, setShowAddContactModal } = useAddContactModal();
   return (
     <ModalContext.Provider value={{ setShowAddContactModal }}>
+      <AddContactModal />
       {children}
     </ModalContext.Provider>
   );
