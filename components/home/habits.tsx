@@ -12,19 +12,19 @@ import { useState } from "react";
 
 export default function HabitCard() {
   const handleSlotSelect = ({ habit, day }: { habit: string; day: number }) => {
-    console.log(day);
-    setSelectedSlots((prevSelectedSlots) => {
-      const newSelectedSlots = [...prevSelectedSlots];
-      const index = newSelectedSlots.findIndex((e) => e.habit === habit);
-      newSelectedSlots[index].slots = newSelectedSlots[index]?.slots?.map(
-        (slot) => {
-          console.log(slot, "slot");
-          return slot.day === day ? { ...slot, active: !slot.active } : slot;
+    setSelectedSlots((prevSelectedSlots) =>
+      prevSelectedSlots.map((item) => {
+        if (item.habit === habit) {
+          return {
+            ...item,
+            slots: item.slots.map((slot) =>
+              slot.day === day ? { ...slot, active: !slot.active } : slot
+            )
+          };
         }
-      );
-      console.log(newSelectedSlots);
-      return newSelectedSlots;
-    });
+        return item;
+      })
+    );
   };
   const slotData = [
     {
