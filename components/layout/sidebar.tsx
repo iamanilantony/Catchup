@@ -9,7 +9,7 @@ import {
   AiFillCheckCircle,
   AiFillSetting
 } from "react-icons/ai";
-import { HiMiniArrowLeftCircle } from "react-icons/hi2";
+import { HiMiniArrowLeftCircle, HiMiniArrowRightCircle } from "react-icons/hi2";
 // import { GiCootieCatcher } from "react-icons/gi";
 import { useState } from "react";
 
@@ -17,20 +17,26 @@ export default function Sidebar({ session }: { session?: Session | null }) {
   // const { SignInModal, setShowSignInModal } = useSignInModal();
   const [modalCollapse, setModalCollapse] = useState(true);
   return (
-    <div className="fixed left-0 top-0 z-50 h-screen w-56 overflow-y-auto bg-[#F7F9FC] text-[#BDC5CE]">
+    <div
+      className={`fixed left-0 top-0 z-50 h-screen transform transition-transform duration-300 ${
+        modalCollapse ? "w-56" : "w-22"
+      } overflow-y-auto bg-[#F7F9FC] text-[#BDC5CE]`}
+    >
       <div className="flex items-center p-4 pl-8 text-2xl font-bold text-[#0F6FDE]">
         <AiOutlineVideoCameraAdd className="mr-2" />
-        <p>Catchup</p>
-        <div className="fixed z-0 ml-44 cursor-pointer">
-          <button
-            className={`bg-${
-              modalCollapse ? "red" : "blue"
-            }-500 rounded-lg p-2 text-black`}
-            onClick={() => setModalCollapse(!modalCollapse)}
-          >
+        {modalCollapse && "Catchup"}
+        <button
+          className={`bg fixed z-0  cursor-pointer ${
+            modalCollapse ? "ml-40" : "ml-8"
+          } rounded-lg p-2`}
+          onClick={() => setModalCollapse(!modalCollapse)}
+        >
+          {modalCollapse ? (
             <HiMiniArrowLeftCircle />
-          </button>
-        </div>
+          ) : (
+            <HiMiniArrowRightCircle />
+          )}
+        </button>
       </div>
       <nav className="p-4">
         <ul>

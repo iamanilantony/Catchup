@@ -12,6 +12,7 @@ import {
 } from "@/app/ui/card";
 import PendingTasks from "@/components/home/pending-tasks";
 import HabitCard from "@/components/home/habits";
+import { Dashpanel } from "@/components/home/dashpanel";
 
 const page = () => {
   // const { setShowAddContactModal } = useContext(ModalContext);
@@ -31,61 +32,7 @@ const page = () => {
           <PendingTasks />
         </div>
         <div className="mb-10" />
-        <Card>
-          <CardHeader>
-            <CardTitle>Card Title</CardTitle>
-          </CardHeader>
-          <div className="flex justify-between p-4">
-            <Card>
-              <CardHeader>
-                <CardTitle>Card Title</CardTitle>
-                <CardDescription>Card Description</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p>Card Content</p>
-              </CardContent>
-              <CardFooter>
-                <p>Card Footer</p>
-              </CardFooter>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>Card Title</CardTitle>
-                <CardDescription>Card Description</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p>Card Content</p>
-              </CardContent>
-              <CardFooter>
-                <p>Card Footer</p>
-              </CardFooter>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>Card Title</CardTitle>
-                <CardDescription>Card Description</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p>Card Content</p>
-              </CardContent>
-              <CardFooter>
-                <p>Card Footer</p>
-              </CardFooter>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>Card Title</CardTitle>
-                <CardDescription>Card Description</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p>Card Content</p>
-              </CardContent>
-              <CardFooter>
-                <p>Card Footer</p>
-              </CardFooter>
-            </Card>
-          </div>
-        </Card>
+        <Dashpanel />
       </div>
     </>
   );
