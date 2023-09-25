@@ -8,6 +8,7 @@ import {
   CardContent,
   CardFooter
 } from "@/app/ui/card";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function HabitCard() {
@@ -91,7 +92,12 @@ export default function HabitCard() {
   return (
     <Card className="mr-4">
       <CardHeader>
-        <CardTitle>Habits</CardTitle>
+        <div className="flex justify-between">
+          <CardTitle>Habits</CardTitle>
+          <p className="text-xs text-gray-500">
+            <Link href="/habits">All habits</Link>
+          </p>
+        </div>
         <CardDescription>Personal Growth Habits</CardDescription>
       </CardHeader>
       <CardContent>

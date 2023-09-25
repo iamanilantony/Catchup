@@ -1,15 +1,3 @@
-import Balancer from "react-wrap-balancer";
-import { DEPLOY_URL } from "@/lib/constants";
-import { useContext } from "react";
-import { ModalContext } from "../ui/modal-provider";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle
-} from "@/app/ui/card";
 import PendingTasks from "@/components/home/pending-tasks";
 import HabitCard from "@/components/home/habits";
 import { Dashpanel } from "@/components/home/dashpanel";
