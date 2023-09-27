@@ -94,7 +94,7 @@ export default function page() {
             </div>
           ))}
         </div>
-        <table>
+        <table width="1200px">
           <thead>
             {table.getHeaderGroups().map((headerGroup) => (
               <tr key={headerGroup.id}>
