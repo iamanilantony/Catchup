@@ -1,5 +1,5 @@
 import React from "react";
-import SingleExpenseCard from "@/components/expensetracker/singleExpenseCard";
+import SingleExpenseCard from "@/components/expensetracker/SingleExpenseCard";
 
 type Props = {};
 

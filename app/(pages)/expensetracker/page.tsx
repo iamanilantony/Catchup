@@ -1,5 +1,6 @@
-import DailySummaryCard from "@/components/expensetracker/dailySummaryCard";
-import SingleExpenseCard from "@/components/expensetracker/singleExpenseCard";
+import AddExpenseForm from "@/components/expensetracker/AddExpenseForm";
+import DailySummaryCard from "@/components/expensetracker/DailySummaryCard";
+import SingleExpenseCard from "@/components/expensetracker/SingleExpenseCard";
 import HabitCard from "@/components/home/habits";
 
 export default function page() {
@@ -40,6 +41,7 @@ export default function page() {
             <DailySummaryCard />
             <DailySummaryCard />
             <DailySummaryCard />
+            <AddExpenseForm />
           </div>
         </div>
       </div>
