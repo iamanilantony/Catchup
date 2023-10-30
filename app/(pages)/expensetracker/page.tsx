@@ -1,6 +1,9 @@
+"use client";
+
 import AddExpenseForm from "@/components/expensetracker/AddExpenseForm";
 import DailySummaryCard from "@/components/expensetracker/DailySummaryCard";
-import ExpenseModal from "@/components/expensetracker/ExpenseModal";
+import ExpenseModal from "@/components/expensetracker/ExpenseDialog";
+import ExpenseModal2 from "@/components/expensetracker/ExpenseModal";
 import SingleExpenseCard from "@/components/expensetracker/SingleExpenseCard";
 import HabitCard from "@/components/home/habits";
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Dialog,
   DialogHeader,
@@ -8,24 +8,20 @@ import {
   DialogTrigger
 } from "@/components/ui/Dialog";
 import AddExpenseForm from "@/components/expensetracker/AddExpenseForm";
+import Modal from "../shared/modal";
+import { Button } from "@/components/ui/Button";
 
 type Props = {};
 
 const ExpenseModal = (props: Props) => {
+  const [showModal, setShowModal] = useState(false);
   return (
-    <Dialog>
-      <DialogTrigger>Open</DialogTrigger>
-      <DialogContent>
-        <DialogHeader>
-          <DialogTitle>Are you sure absolutely sure?</DialogTitle>
-          <DialogDescription>
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
-            <AddExpenseForm />
-          </DialogDescription>
-        </DialogHeader>
-      </DialogContent>
-    </Dialog>
+    <div>
+      <Button onClick={() => setShowModal((prev) => !prev)}>I am Anil</Button>
+      <Modal showModal={showModal} setShowModal={setShowModal}>
+        <AddExpenseForm />
+      </Modal>
+    </div>
   );
 };
 

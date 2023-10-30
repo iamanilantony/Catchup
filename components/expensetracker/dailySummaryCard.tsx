@@ -5,7 +5,7 @@ type Props = {};
 
 const DailySummaryCard = (props: Props) => {
   return (
-    <div className="my-4 bg-white px-2">
+    <div className="my-4 bg-white">
       <div className="my-2 flex justify-between">
         <p className="font-bold">
           27{" "}
