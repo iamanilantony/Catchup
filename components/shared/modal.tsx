@@ -5,17 +5,18 @@ import {
   SetStateAction,
   useCallback,
   useEffect,
-  useRef,
+  useRef
 } from "react";
 import FocusTrap from "focus-trap-react";
 import { AnimatePresence, motion } from "framer-motion";
 import Leaflet from "./leaflet";
 import useWindowSize from "@/lib/hooks/use-window-size";
+import { X } from "lucide-react";
 
 export default function Modal({
   children,
   showModal,
-  setShowModal,
+  setShowModal
 }: {
   children: React.ReactNode;
   showModal: boolean;
@@ -29,7 +30,7 @@ export default function Modal({
         setShowModal(false);
       }
     },
-    [setShowModal],
+    [setShowModal]
   );
 
   useEffect(() => {
