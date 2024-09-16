@@ -12,7 +12,7 @@ import { useContext } from "react";
 import { ModalContext } from "./ui/modal-provider";
 
 export default async function Home() {
-  const { setShowAddContactModal } = useContext(ModalContext);
+  // const { setShowAddContactModal } = useContext(ModalContext);
   return (
     <>
       <div className="z-10 w-full max-w-xl px-5 xl:px-0">
@@ -46,7 +46,7 @@ export default async function Home() {
           </a>
         </div>
         <button
-          onClick={() => setShowAddContactModal(true)}
+          // onClick={() => setShowAddContactModal(true)}
           className="rounded-md border border-black bg-black px-5 py-2 text-sm font-medium text-white transition-all duration-75 hover:bg-white hover:text-black active:scale-95"
         >
           CreateProject
